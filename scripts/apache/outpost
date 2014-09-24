@@ -1,0 +1,14 @@
+ServerName my.outpost.rocks
+StartServers 2
+MinSpareServers 4
+MaxSpareServers 8
+MaxClients 20
+MaxRequestsPerChild 5000
+KeepAlive On
+# Fix for binary files in Vagrant shared folders becoming corrupt when overwritten
+# From http://stackoverflow.com/a/9480164/88487
+EnableSendfile Off
+
+<FilesMatch \.php$>
+  SetHandler application/x-httpd-php
+</FilesMatch>

@@ -1,0 +1,61 @@
+{
+    "builders": [{
+        "type": "vmware-iso",
+        "iso_url": "http://releases.ubuntu.com/trusty/ubuntu-14.04-server-amd64.iso",
+        "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
+        "iso_checksum_type": "md5",
+        "ssh_username": "vagrant",
+        "ssh_password": "vagrant",
+        "ssh_wait_timeout": "10m",
+        "floppy_files": [
+            "scripts/apache/default",
+            "scripts/apache/outpost",
+            "scripts/apache/htaccess",
+            "scripts/php/php.ini",
+            "scripts/mysql/my.cnf",
+            "scripts/cron/mysqldump.sh"
+        ],
+        "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+        "http_directory": "http",
+        "vm_name": "outpost",
+        "tools_upload_flavor": "linux",
+        "boot_command":[
+            "<esc><esc><enter><wait>",
+            "/install/vmlinuz noapic ",
+            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu-nqa.txt ",
+            "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+            "hostname=wordpress ",
+            "fb=false debconf/frontend=noninteractive ",
+            "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+            "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+            "initrd=/install/initrd.gz -- <enter>"
+        ]
+    }],
+
+    "provisioners": [{
+        "type": "shell",
+        "scripts": [
+            "scripts/vagrant/vagrant.sh",
+            "scripts/base/base.sh",
+            "scripts/apache/apache.sh",
+            "scripts/mysql/mysql.sh",
+            "scripts/php/php.sh",
+			"scripts/wordpress/wpcli.sh",
+            "scripts/cron/cron.sh",
+            "scripts/vmware.sh",
+            "scripts/cleanup.sh",
+			"scripts/compress.sh"
+        ],
+        "override": {
+            "vmware-iso": {
+                "execute_command": "echo 'vagrant'|sudo -E -S sh '{{.Path}}'"
+            }
+        }
+    }],
+
+    "post-processors": [{
+        "type": "vagrant",
+        "output": "./outpost-vmware.box"
+    }]
+
+}
