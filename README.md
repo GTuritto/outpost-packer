@@ -4,7 +4,7 @@ A [packer.io](http://packer.io) template to create a Vagrant box for the [Outpos
 
 **Licence**: MIT
 | **Author**: Nick Cernis [@nickcernis](http://twitter.com/nickcernis)
-| **Version**: 0.1.0
+| **Version**: 0.2
 
 This packer template provisions an Ubuntu box with the following software for VMware and Vagrant:
 
@@ -12,8 +12,9 @@ This packer template provisions an Ubuntu box with the following software for VM
 - Apache 2.4.7
 - PHP 5.5 (php5 php5-mysql php5-xdebug php5-cli php5-curl php5-gd libapache2-mod-php5)
 - MySQL 5.5
-- VMWare Tools (version 6.0.1)
+- VMWare Tools
 - WP-CLI
+- phpMyAdmin
 
 The goal is to minimise the amount of provisioning that vagrant has to do so that `vagrant up` times for WordPress developers become bearable.
 

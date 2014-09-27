@@ -40,6 +40,7 @@
             "scripts/apache/apache.sh",
             "scripts/mysql/mysql.sh",
             "scripts/php/php.sh",
+			"scripts/php/phpmyadmin.sh",
 			"scripts/wordpress/wpcli.sh",
             "scripts/cron/cron.sh",
             "scripts/vmware.sh",
