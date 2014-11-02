@@ -2,9 +2,9 @@
 
 A [packer.io](http://packer.io) template to create a Vagrant box for the [Outpost](https://github.com/nickcernis/outpost) WordPress development environment.
 
-**Licence**: MIT
-| **Author**: Nick Cernis [@nickcernis](http://twitter.com/nickcernis)
-| **Version**: 0.2
+**Licence**: MIT  
+**Author**: Nick Cernis [@nickcernis](http://twitter.com/nickcernis)  
+**Version**: 0.2.1
 
 This packer template provisions an Ubuntu box with the following software for VMware and Vagrant:
 
@@ -17,7 +17,7 @@ This packer template provisions an Ubuntu box with the following software for VM
 - phpMyAdmin
 
 The goal is to minimise the amount of provisioning that vagrant has to do so that `vagrant up` times for WordPress developers become bearable.
-
+pac
 WordPress itself is not added – it's installed by [Outpost](https://github.com/nickcernis/outpost) after `vagrant up`.
 
 ## Building the VMware box
