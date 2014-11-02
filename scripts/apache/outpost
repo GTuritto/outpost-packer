@@ -1,4 +1,4 @@
-ServerName my.outpost.rocks
+ServerName localhost
 StartServers 2
 MinSpareServers 4
 MaxSpareServers 8
