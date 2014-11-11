@@ -16,9 +16,7 @@ This packer template provisions an Ubuntu box with the following software for VM
 - WP-CLI
 - phpMyAdmin
 
-The goal is to minimise the amount of provisioning that vagrant has to do so that `vagrant up` times for WordPress developers become bearable.
-pac
-WordPress itself is not added – it's installed by [Outpost](https://github.com/nickcernis/outpost) after `vagrant up`.
+The goal is to minimise the amount of provisioning that vagrant has to do so that `vagrant up` times for WordPress developers become bearable. WordPress itself is not added – it's installed by [Outpost](https://github.com/nickcernis/outpost) after `vagrant up`.
 
 ## Building the VMware box
 
